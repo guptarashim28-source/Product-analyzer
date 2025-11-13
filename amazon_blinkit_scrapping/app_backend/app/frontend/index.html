@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blinkit Product Insights</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Blinkit Product Insights</h1>
+        <p>Compare products across pincodes and see brand frequency and price per 100g.</p>
+      </header>
+
+      <section class="card">
+        <form id="scrape-form">
+          <div class="field">
+            <label for="query">Product type or search</label>
+            <input id="query" name="query" type="text" placeholder="e.g., protein bar, snacks" required />
+          </div>
+
+          <div class="field">
+            <label for="pincodes">Pincodes (comma or newline separated)</label>
+            <textarea id="pincodes" name="pincodes" rows="3" placeholder="110001, 560001" required></textarea>
+          </div>
+
+          <div class="actions">
+            <label class="checkbox">
+              <input id="save_html" type="checkbox" /> Save raw HTML (debug)
+            </label>
+            <button type="submit">Fetch Insights</button>
+          </div>
+        </form>
+      </section>
+
+      <section id="loading" class="hidden">
+        <div class="spinner"></div>
+        <p>Scraping Blinkit... This can take ~30–60 seconds per pincode.</p>
+      </section>
+
+      <section id="results" class="hidden">
+        <div id="summary"></div>
+        <div class="actions card" style="justify-content: space-between;">
+          <div></div>
+          <button id="download-csv" type="button">Download CSV</button>
+        </div>
+
+        <h2>Top Brands (appearing in top 10 most often)</h2>
+        <ol id="brand-list"></ol>
+
+        <h2>Products</h2>
+        <div class="table-wrap">
+          <table id="products-table">
+            <thead>
+              <tr>
+                <th>Pincode</th>
+                <th>Rank</th>
+                <th>Brand</th>
+                <th>Name</th>
+                <th>Weight</th>
+                <th>Price</th>
+                <th>Price/100g</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+      <footer>
+        <p>Local prototype. Use responsibly and follow site terms.</p>
+      </footer>
+    </div>
+
+    <script src="/main.js"></script>
+  </body>
+</html>

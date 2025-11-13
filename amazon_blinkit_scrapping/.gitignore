@@ -1,0 +1,86 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+env/
+
+# Environment and API keys
+.env
+.env.*
+.venv
+venv/
+ENV/
+env/
+api_keys*
+*secret*
+*token*
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
+*.code-workspace
+*.swp
+*.swo
+*~
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Scraped Data
+html_pages/
+*.csv
+*.xlsx
+exports/
+*.html
+
+# Cookie files
+cookies.txt
+
+# Logs
+*.log
+logs/
+
+# Database
+*.db
+*.sqlite
+
+# Data files
+**/*.csv
+*.csv
+**/*.xlsx
+*.xlsx
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
