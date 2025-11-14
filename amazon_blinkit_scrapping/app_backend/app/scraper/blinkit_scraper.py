@@ -296,8 +296,9 @@ def _parse_products(html: str) -> List[Dict[str, Any]]:
 
 
 def scrape_for_pincode_query(pincode: str, query: str, save_html: bool = False, max_scrolls: int = 20, headless: bool = True) -> Tuple[List[Dict[str, Any]], Optional[str]]:
-    driver = _init_driver(headless=headless)
+    driver = None
     try:
+        driver = _init_driver(headless=headless)
         url = SEARCH_URL_TPL.format(query=quote_plus(query))
         print(f"🌐 Opening Blinkit with query: {query}")
         
@@ -313,7 +314,10 @@ def scrape_for_pincode_query(pincode: str, query: str, save_html: bool = False, 
         if pincode in pincode_coords:
             coords = pincode_coords[pincode]
             print(f"📍 Setting geolocation to {coords['latitude']}, {coords['longitude']}")
-            driver.execute_cdp_cmd("Emulation.setGeolocationOverride", coords)
+            try:
+                driver.execute_cdp_cmd("Emulation.setGeolocationOverride", coords)
+            except Exception as e:
+                print(f"⚠️ Could not set geolocation: {e}")
         
         driver.get(url)
         
@@ -442,8 +446,12 @@ def scrape_for_pincode_query(pincode: str, query: str, save_html: bool = False, 
         print(f"{'='*70}\n")
         
         return products, html if save_html else None
+    except Exception as e:
+        print(f"❌ Error during scraping: {e}")
+        return [], None
     finally:
-        try:
-            driver.quit()
-        except Exception:
-            pass
+        if driver:
+            try:
+                driver.quit()
+            except Exception:
+                pass
