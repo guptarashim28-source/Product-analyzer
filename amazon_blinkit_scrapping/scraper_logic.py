@@ -74,6 +74,11 @@ def scrape_blinkit(category: str, max_products: int = 30, pincode: str = "380015
         headless=(not manual_location_mode)  # Non-headless if manual mode
     )
     
+    # Check if scraping was successful
+    if not products or not isinstance(products, list):
+        print("❌ Scraping failed or returned no products")
+        return []
+    
     # Limit to max_products for scraping
     products = products[:max_products]
     
