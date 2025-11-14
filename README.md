@@ -79,11 +79,20 @@ NEWSAPI_KEY=your_key_here
 
 ## 🚢 Deploy on Render
 
+**⚠️ Important: Selenium/Browser Limitation**
+Render's free tier doesn't support Selenium with Chrome. The scraper won't work on Render.
+
+**Alternatives:**
+1. **Run locally** - Full functionality with scraping
+2. **Use Railway.app or Heroku** - Better support for browser automation
+3. **Deploy API-only mode** - Analyze pre-scraped data without live scraping
+
+For Render deployment:
 1. Push to GitHub
 2. Create new Web Service on Render
 3. Connect your repository
 4. Add environment variables (API keys)
-5. Deploy!
+5. Note: Scraping will fail, but Gemini analysis and NewsAPI will work with provided data
 
 The `render.yaml` and `Procfile` are already configured.
 

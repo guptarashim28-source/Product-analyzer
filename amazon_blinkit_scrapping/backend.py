@@ -29,14 +29,30 @@ def analyze(req: AnalyzeRequest) -> Dict:
     3. Return JSON report
     """
     try:
+        print(f"\n{'='*60}")
+        print(f"Starting analysis for: {req.category}")
+        print(f"Pincode: {req.pincode}, Max products: {req.max_products}")
+        print(f"{'='*60}\n")
+        
         products = scrape_blinkit(req.category, req.max_products, req.pincode)
+        print(f"✅ Scraped {len(products)} products")
+        
         report = analyze_products_with_gemini_and_news(products, req.category)
+        print(f"✅ Analysis complete")
+        print(f"\n📊 ANALYSIS SUMMARY:")
+        print(f"Summary: {report.get('summary', 'N/A')}")
+        print(f"Products analyzed: {len(report.get('products', []))}")
+        print(f"News articles: {len(report.get('news_insights', []))}")
+        print(f"Market trends: {len(report.get('market_trends', []))}")
+        print(f"{'='*60}\n")
+        
         return {
             "category": req.category,
             "total_products": len(products),
             "report": report,
         }
     except Exception as e:
+        print(f"❌ ERROR: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.get("/health")

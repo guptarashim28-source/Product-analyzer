@@ -14,6 +14,66 @@ def initialize_gemini():
     return genai.GenerativeModel('gemini-2.5-flash')
 
 
+def analyze_news_insights(news_articles: List[Dict], category: str) -> Dict[str, Any]:
+    """
+    Analyze news articles to extract actionable insights for product launch
+    """
+    try:
+        model = initialize_gemini()
+        
+        # Prepare news summary for Gemini
+        news_summary = "\n\n".join([
+            f"Title: {article.get('title', 'N/A')}\nDescription: {article.get('description', 'N/A')}"
+            for article in news_articles[:10]  # Analyze top 10 articles
+        ])
+        
+        prompt = f"""
+        Analyze these recent news articles about the {category} industry and extract actionable insights for launching a new product.
+        
+        NEWS ARTICLES:
+        {news_summary}
+        
+        Based on these articles, provide strategic insights for product development and launch.
+        
+        Return ONLY a valid JSON object with this exact structure (no markdown, no code blocks):
+        {{
+            "key_trends": ["Trend 1", "Trend 2", "Trend 3"],
+            "consumer_behaviors": ["Behavior insight 1", "Behavior insight 2", "Behavior insight 3"],
+            "market_opportunities": ["Opportunity 1", "Opportunity 2"],
+            "competitive_insights": ["Insight 1", "Insight 2"],
+            "launch_recommendations": ["Recommendation 1", "Recommendation 2", "Recommendation 3"],
+            "positioning_strategy": "Brief positioning recommendation based on current trends",
+            "timing_insights": "When to launch and why based on market trends"
+        }}
+        """
+        
+        response = model.generate_content(prompt)
+        result_text = response.text.strip()
+        
+        # Clean up response
+        if result_text.startswith("```json"):
+            result_text = result_text[7:]
+        if result_text.startswith("```"):
+            result_text = result_text[3:]
+        if result_text.endswith("```"):
+            result_text = result_text[:-3]
+        result_text = result_text.strip()
+        
+        return json.loads(result_text)
+        
+    except Exception as e:
+        print(f"Error analyzing news insights: {e}")
+        return {
+            "key_trends": [],
+            "consumer_behaviors": [],
+            "market_opportunities": [],
+            "competitive_insights": [],
+            "launch_recommendations": [],
+            "positioning_strategy": "Unable to generate insights",
+            "timing_insights": "Unable to generate insights"
+        }
+
+
 def analyze_product_description(product: Dict[str, Any]) -> Dict[str, Any]:
     """
     Analyze a single product's description, nutrition, and ingredients

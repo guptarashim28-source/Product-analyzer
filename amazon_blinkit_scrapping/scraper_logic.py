@@ -1,4 +1,3 @@
-# scraper_logic.py
 from typing import List, Dict
 import os
 from pathlib import Path
@@ -8,10 +7,21 @@ from dotenv import load_dotenv
 env_path = Path(__file__).parent / ".env"
 load_dotenv(dotenv_path=env_path)
 
-# Import existing modules
-from app_backend.app.scraper.blinkit_scraper import scrape_for_pincode_query
-from app_backend.app.utils.gemini_helper import analyze_top_products, generate_gap_analysis
-from app_backend.app.utils.news_helper import get_trending_news, get_market_trends
+# Check if we're in a cloud environment without browser support
+CLOUD_MODE = os.getenv("CLOUD_MODE", "false").lower() == "true"
+
+if not CLOUD_MODE:
+    # Import existing modules only if not in cloud mode
+    try:
+        from app_backend.app.scraper.blinkit_scraper import scrape_for_pincode_query
+        from app_backend.app.utils.gemini_helper import analyze_top_products, generate_gap_analysis, analyze_news_insights
+        from app_backend.app.utils.news_helper import get_trending_news, get_market_trends
+    except Exception as e:
+        print(f"Warning: Could not import scraping modules: {e}")
+        CLOUD_MODE = True
+else:
+    # Mock imports for cloud mode
+    print("Running in CLOUD_MODE - using mock data for scraping")
 
 
 def scrape_blinkit(category: str, max_products: int = 30, pincode: str = "380015") -> List[Dict]:
@@ -109,7 +119,8 @@ def analyze_products_with_gemini_and_news(products: List[Dict], category: str) -
         "products": [],
         "gap_analysis": None,
         "news_insights": [],
-        "market_trends": []
+        "market_trends": [],
+        "ai_news_analysis": None
     }
     
     # Gemini Analysis
@@ -142,6 +153,15 @@ def analyze_products_with_gemini_and_news(products: List[Dict], category: str) -
             if news_data.get("articles"):
                 result["news_insights"] = news_data["articles"]
                 result["summary"] += f" Found {len(news_data['articles'])} recent news articles."
+                
+                # AI Analysis of news articles
+                if gemini_key and len(news_data["articles"]) > 0:
+                    try:
+                        ai_insights = analyze_news_insights(news_data["articles"], category)
+                        result["ai_news_analysis"] = ai_insights
+                        result["summary"] += " AI analyzed news for product launch insights."
+                    except Exception as e:
+                        print(f"AI news analysis failed: {e}")
             
             # Get market trends (30 days, 15 articles)
             search_category = f"{category} food" if category not in ["food", "beverage"] else category
