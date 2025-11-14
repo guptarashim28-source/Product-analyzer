@@ -102,6 +102,13 @@ if analyze_button:
                 # Display results
                 st.success(f"✅ Analysis complete! Found {len(products)} products.")
                 
+                # Debug: Show what's in the report
+                with st.expander("🔍 Debug Info (click to expand)"):
+                    st.write(f"Report keys: {list(report.keys())}")
+                    st.write(f"Number of analyzed products: {len(report.get('products', []))}")
+                    if report.get('products'):
+                        st.write(f"First product keys: {list(report['products'][0].keys())}")
+                
                 # Create tabs
                 tab1, tab2, tab3 = st.tabs(["📦 Products Overview", "🎯 Gap Analysis", "📰 News & Trends"])
                 
