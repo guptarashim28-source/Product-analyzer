@@ -3,11 +3,14 @@ services:
     name: product-analyzer
     env: python
     region: oregon
+    plan: free
     buildCommand: |
       pip install -r requirements.txt
-      python -m playwright install chromium
-      python -m playwright install-deps
-    startCommand: cd amazon_blinkit_scrapping && uvicorn backend:app --host 0.0.0.0 --port $PORT
+      apt-get update && apt-get install -y wget gnupg unzip
+      wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
+      echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list
+      apt-get update && apt-get install -y google-chrome-stable
+    startCommand: streamlit run streamlit_standalone.py --server.port $PORT --server.address 0.0.0.0 --server.headless true
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.0
@@ -16,6 +19,6 @@ services:
       - key: NEWSAPI_KEY
         sync: false
       - key: BLINKIT_HEADLESS
-        value: 1
-      - key: MAX_SCROLLS
-        value: 40
+        value: "1"
+      - key: MANUAL_LOCATION_MODE
+        value: "false"
