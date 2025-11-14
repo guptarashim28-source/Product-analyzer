@@ -48,6 +48,9 @@ def scrape_blinkit(category: str, max_products: int = 30, pincode: str = "380015
         - grams: Parsed weight in grams
         - price_per_100g: Price per 100g for comparison
     """
+    # Ensure max_products is an integer
+    max_products = int(max_products)
+    
     # Use provided pincode or fall back to environment variable
     if not pincode:
         pincode = os.getenv("DEFAULT_PINCODE", "380015")

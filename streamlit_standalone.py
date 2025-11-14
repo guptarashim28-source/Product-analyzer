@@ -75,7 +75,7 @@ if analyze_button:
             try:
                 # Step 1: Scrape products
                 st.info("📥 Scraping products from Blinkit...")
-                products = scrape_blinkit(category, pincode, max_products)
+                products = scrape_blinkit(category, pincode, int(max_products))
                 
                 if not products:
                     st.error("❌ No products found. Please try a different category or pincode.")
