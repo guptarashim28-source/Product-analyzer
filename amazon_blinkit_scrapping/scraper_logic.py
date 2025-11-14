@@ -15,7 +15,7 @@ if not CLOUD_MODE:
     try:
         from app_backend.app.scraper.blinkit_scraper import scrape_for_pincode_query
         from app_backend.app.utils.gemini_helper import analyze_top_products, generate_gap_analysis, analyze_news_insights
-        from app_backend.app.utils.news_helper import get_trending_news, get_market_trends
+        from app_backend.app.utils.news_helper import get_trending_news
     except Exception as e:
         print(f"Warning: Could not import scraping modules: {e}")
         CLOUD_MODE = True
@@ -52,16 +52,32 @@ def scrape_blinkit(category: str, max_products: int = 30, pincode: str = "380015
     if not pincode:
         pincode = os.getenv("DEFAULT_PINCODE", "380015")
     
+    # Check if we should use manual location mode
+    manual_location_mode = os.getenv("MANUAL_LOCATION_MODE", "false").lower() == "true"
+    
+    if manual_location_mode:
+        print(f"\n{'='*70}")
+        print(f"🔧 MANUAL LOCATION MODE ENABLED")
+        print(f"{'='*70}")
+        print(f"A browser window will open. Please:")
+        print(f"1. Wait for Blinkit to load")
+        print(f"2. Manually change location to pincode: {pincode}")
+        print(f"3. The scraper will continue automatically after 15 seconds")
+        print(f"{'='*70}\n")
+    
     # Scrape products
     products, _ = scrape_for_pincode_query(
         pincode=pincode,
         query=category,
         save_html=False,
-        max_scrolls=40
+        max_scrolls=25,  # Increased for more accurate product loading
+        headless=(not manual_location_mode)  # Non-headless if manual mode
     )
     
-    # Limit to max_products
+    # Limit to max_products for scraping
     products = products[:max_products]
+    
+    print(f"📊 Scraped {len(products)} products, will analyze top 3 in detail")
     
     # Enrich products with additional fields for API compatibility
     enriched_products = []
@@ -116,29 +132,30 @@ def analyze_products_with_gemini_and_news(products: List[Dict], category: str) -
     
     result = {
         "summary": "",
-        "products": [],
+        "all_products": products,  # All scraped products (names only)
+        "products": [],  # Top 3 analyzed products
         "gap_analysis": None,
         "news_insights": [],
-        "market_trends": [],
         "ai_news_analysis": None
     }
     
-    # Gemini Analysis
+    # Gemini Analysis - Only top 3 products for detailed analysis
+    products_to_analyze = products[:3]
+    print(f"🤖 Analyzing top {len(products_to_analyze)} products with Gemini AI...")
+    
     if gemini_key:
         try:
-            # Analyze top products (default: top 5)
-            top_n = min(5, len(products))
-            analyzed_products = analyze_top_products(products, top_n=top_n)
+            # Analyze only top 3 products
+            analyzed_products = analyze_top_products(products_to_analyze, top_n=3)
             result["products"] = analyzed_products
             
-            # Generate gap analysis and recommendations
+            # Generate gap analysis (re-enabled for comprehensive insights)
+            print("📊 Generating market gap analysis...")
             gap_analysis = generate_gap_analysis(analyzed_products, category)
             result["gap_analysis"] = gap_analysis
             
             # Create summary
-            result["summary"] = f"Analyzed {len(analyzed_products)} top products in '{category}' category. "
-            if gap_analysis:
-                result["summary"] += f"Identified {len(gap_analysis.get('market_gaps', []))} market opportunities."
+            result["summary"] = f"Scraped {len(products)} products, analyzed top {len(analyzed_products)} in detail. "
         except Exception as e:
             result["summary"] += f" Gemini analysis error: {str(e)}"
             print(f"Gemini analysis failed: {e}")
@@ -154,21 +171,12 @@ def analyze_products_with_gemini_and_news(products: List[Dict], category: str) -
                 result["news_insights"] = news_data["articles"]
                 result["summary"] += f" Found {len(news_data['articles'])} recent news articles."
                 
-                # AI Analysis of news articles
-                if gemini_key and len(news_data["articles"]) > 0:
-                    try:
-                        ai_insights = analyze_news_insights(news_data["articles"], category)
-                        result["ai_news_analysis"] = ai_insights
-                        result["summary"] += " AI analyzed news for product launch insights."
-                    except Exception as e:
-                        print(f"AI news analysis failed: {e}")
+                # AI Analysis of news (re-enabled for comprehensive insights)
+                print("🤖 Analyzing news with AI...")
+                ai_news_insights = analyze_news_insights(news_data["articles"], category)
+                result["ai_news_analysis"] = ai_news_insights
             
-            # Get market trends (30 days, 15 articles)
-            search_category = f"{category} food" if category not in ["food", "beverage"] else category
-            trends_data = get_market_trends(search_category)
-            if trends_data.get("articles"):
-                result["market_trends"] = trends_data["articles"]
-                result["summary"] += f" Identified {len(trends_data['articles'])} market trend insights."
+            # Market trends removed - insights now in AI news analysis
         except Exception as e:
             result["summary"] += f" NewsAPI error: {str(e)}"
             print(f"NewsAPI analysis failed: {e}")

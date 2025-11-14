@@ -45,8 +45,9 @@ def get_trending_news(query: str, days_back: int = 7, max_results: int = 10) -> 
         from_date = to_date - timedelta(days=days_back)
         
         # Search for news articles
+        # Try Indian sources first, but don't make it mandatory as NewsAPI free tier has limited sources
         response = newsapi.get_everything(
-            q=query,
+            q=f"{query} India OR Indian market OR {query}",
             language='en',
             from_param=from_date.strftime('%Y-%m-%d'),
             to=to_date.strftime('%Y-%m-%d'),
@@ -108,7 +109,7 @@ def get_market_trends(category: str) -> Dict:
     
     try:
         # Search for market trends
-        keywords = f"{category} market trends OR {category} industry news OR {category} consumer insights"
+        keywords = f"{category} market trends India OR {category} industry news India OR {category} consumer insights"
         
         response = newsapi.get_everything(
             q=keywords,

@@ -82,6 +82,26 @@ st.markdown("""
     .insights-box h3, .insights-box h4 {
         color: white;
     }
+    .segment-card {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 10px;
+        border-left: 4px solid #9B59B6;
+        margin-bottom: 1rem;
+        color: #333;
+    }
+    .segment-card h3 {
+        color: #9B59B6;
+        margin-top: 0;
+    }
+    .positioning-box {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        padding: 2rem;
+        border-radius: 15px;
+        color: white;
+        margin: 1.5rem 0;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -96,9 +116,12 @@ with st.sidebar:
     
     category = st.text_input("📦 Product Category", value="snacks", placeholder="e.g., protein bar, cookies")
     pincode = st.text_input("📍 Pincode", value="380015", placeholder="e.g., 110001")
+    
     max_products = st.slider("🔢 Max Products to Analyze", min_value=3, max_value=10, value=3)
     
-    st.warning("⏱️ **Estimated Time:** ~2 minutes for scraping + 30 seconds per product for AI analysis")
+    st.success("✨ **Full Analysis Enabled:** Products + Gap Analysis + AI News Insights")
+    
+    st.warning("⏱️ **Estimated Time:** ~2-3 minutes for complete analysis (scraping + AI insights)")
     
     st.divider()
     
@@ -127,7 +150,7 @@ if analyze_button:
     if not category:
         st.error("❌ Please enter a product category!")
     else:
-        with st.spinner(f"🔍 Analyzing {category} products in pincode {pincode}... This may take 3-5 minutes. Please wait..."):
+        with st.spinner(f"🔍 Analyzing {max_products} {category} products for pincode {pincode}... This may take 2-3 minutes. Please wait..."):
             try:
                 # Make API request with longer timeout
                 response = requests.post(
@@ -137,7 +160,7 @@ if analyze_button:
                         "max_products": max_products,
                         "pincode": pincode
                     },
-                    timeout=600  # 10 minutes timeout
+                    timeout=900  # 15 minutes timeout
                 )
                 
                 if response.status_code == 200:
@@ -172,7 +195,8 @@ if analyze_button:
                         """, unsafe_allow_html=True)
                     
                     with col4:
-                        gaps = report.get('gap_analysis', {}).get('market_gaps', [])
+                        gap_data = report.get('gap_analysis') or {}
+                        gaps = gap_data.get('market_gaps', [])
                         st.markdown(f"""
                         <div class="metric-card">
                             <h3>{len(gaps)}</h3>
@@ -183,18 +207,36 @@ if analyze_button:
                     st.markdown("---")
                     
                     # Summary
-                    st.success(f"✅ {report.get('summary', 'Analysis complete!')}")
+                    st.success(f"✅ Analysis complete for **{category}** in pincode **{data.get('pincode', pincode)}**!")
+                    st.info(f"📋 {report.get('summary', 'All analysis modules completed successfully.')}")
                     
                     # Tabs for different sections
-                    tab1, tab2, tab3, tab4 = st.tabs(["📊 Product Analysis", "💡 Gap Analysis", "📰 News", "📈 Market Trends"])
+                    tab1, tab2, tab3 = st.tabs(["📊 Products Overview", "💡 Gap Analysis", "📰 News"])
                     
                     # Tab 1: Product Analysis
                     with tab1:
-                        st.header("🔍 AI-Analyzed Products")
-                        products = report.get('products', [])
+                        st.header("📦 Products Scraped")
                         
-                        if products:
-                            for i, product in enumerate(products, 1):
+                        all_products = report.get('all_products', [])
+                        analyzed_products = report.get('products', [])
+                        
+                        # Show all scraped products
+                        if all_products:
+                            st.subheader(f"Top {len(all_products)} Products Found")
+                            for i, product in enumerate(all_products, 1):
+                                col1, col2, col3 = st.columns([3, 1, 1])
+                                with col1:
+                                    st.write(f"{i}. **{product.get('name', 'Unknown')}** - {product.get('brand', 'Unknown')}")
+                                with col2:
+                                    st.write(f"₹{product.get('price', 'N/A')}")
+                                with col3:
+                                    st.write(product.get('weight', 'N/A'))
+                            
+                            st.markdown("---")
+                            st.subheader("🔬 Detailed Analysis (Top 3)")
+                        
+                        if analyzed_products:
+                            for i, product in enumerate(analyzed_products, 1):
                                 # Handle both dict and potential string formats
                                 if isinstance(product, str):
                                     st.warning(f"Product {i}: {product}")
@@ -258,9 +300,21 @@ if analyze_button:
                     
                     # Tab 2: Gap Analysis
                     with tab2:
-                        gap_analysis = report.get('gap_analysis', {})
+                        gap_analysis = report.get('gap_analysis') or {}
                         
-                        if gap_analysis and isinstance(gap_analysis, dict):
+                        if not gap_analysis:
+                            st.header("💡 Market Gap Analysis")
+                            st.info("⚠️ Gap Analysis is currently disabled to conserve API quota")
+                            st.markdown("""
+                            **Why disabled?**
+                            - Gap analysis uses 1 additional Gemini API request
+                            - With limited free tier (250/day), we prioritize product analysis
+                            
+                            **To re-enable:**
+                            - Upgrade to paid Gemini API tier
+                            - Or uncomment gap analysis in `scraper_logic.py`
+                            """)
+                        elif gap_analysis and isinstance(gap_analysis, dict):
                             st.header("💡 Market Opportunity Analysis")
                             
                             # Market Overview
@@ -325,12 +379,12 @@ if analyze_button:
                         else:
                             st.info("No gap analysis available.")
                     
-                    # Tab 3: News
+                    # Tab 3: AI News Insights
                     with tab3:
-                        st.header("📰 Latest Industry News")
+                        st.header("📰 AI-Powered News Insights")
                         
                         # AI-Powered News Insights
-                        ai_insights = report.get('ai_news_analysis', {})
+                        ai_insights = report.get('ai_news_analysis') or {}
                         if ai_insights and isinstance(ai_insights, dict) and ai_insights.get('key_trends'):
                             st.markdown("""
                             <div class="insights-box">
@@ -392,62 +446,42 @@ if analyze_button:
                         else:
                             st.info("No news articles found.")
                     
-                    # Tab 4: Market Trends
-                    with tab4:
-                        st.header("📈 Market Trends & Industry Insights")
-                        trends = report.get('market_trends', [])
-                        news = report.get('news_insights', [])
-                        
-                        if trends and isinstance(trends, list) and len(trends) > 0:
-                            st.markdown("### 📊 Long-term Market Trends (30-day analysis)")
-                            for article in trends:
-                                if isinstance(article, dict):
-                                    st.markdown(f"""
-                                    <div class="news-card">
-                                        <h4>{article.get('title', 'No title')}</h4>
-                                        <p>{article.get('description', 'No description')}</p>
-                                        <p><small>📅 {article.get('published_at', 'N/A')} | 📰 {article.get('source', 'Unknown')}</small></p>
-                                        <a href="{article.get('url', '#')}" target="_blank">Read more →</a>
-                                    </div>
-                                    """, unsafe_allow_html=True)
-                        elif news and isinstance(news, list) and len(news) > 0:
-                            st.info("📊 No specific 30-day trend data available. Showing recent 7-day news as trends:")
-                            for article in news[:5]:  # Show first 5 news as trends
-                                if isinstance(article, dict):
-                                    st.markdown(f"""
-                                    <div class="news-card">
-                                        <h4>{article.get('title', 'No title')}</h4>
-                                        <p>{article.get('description', 'No description')}</p>
-                                        <p><small>📅 {article.get('published_at', 'N/A')} | 📰 {article.get('source', 'Unknown')}</small></p>
-                                        <a href="{article.get('url', '#')}" target="_blank">Read more →</a>
-                                    </div>
-                                    """, unsafe_allow_html=True)
-                        else:
-                            st.warning("📊 No market trends data available.")
-                            st.markdown("""
-                            **Why no trends?**
-                            - NewsAPI free tier has limited historical data access
-                            - The category might be too specific for trend analysis
-                            - Market trends require broader industry keywords
-                            
-                            💡 **Alternative:** Check the **"News" tab** for recent industry articles that can indicate current trends.
-                            
-                            **What you can do:**
-                            - Try broader categories (e.g., "snacks" instead of "protein snacks")
-                            - Upgrade to NewsAPI paid tier for better historical data
-                            - Check industry reports and analyst publications separately
-                            """)
-                    
                 else:
                     st.error(f"❌ API Error: {response.status_code} - {response.text}")
                     
+                    # Special handling for rate limit errors
+                    if response.status_code == 429 or "quota" in response.text.lower() or "429" in response.text:
+                        st.error("🚫 **GEMINI API RATE LIMIT EXCEEDED!**")
+                        st.markdown("""
+                        ### You've hit the daily quota for Gemini API
+                        
+                        **Free Tier Limits:**
+                        - 250 requests per day
+                        - 15 requests per minute
+                        
+                        **💡 Solutions:**
+                        1. **Wait 24 hours** for quota reset
+                        2. **Get a new API key:**
+                           - Visit [Google AI Studio](https://aistudio.google.com/app/apikey)
+                           - Create a new project and generate a new key
+                           - Update your `.env` file with the new key
+                        3. **Upgrade to paid tier** for higher limits
+                        4. **Temporarily disable some features:**
+                           - Comment out STP analysis in backend
+                           - Reduce number of products to 1-2
+                        
+                        **Check current usage:**
+                        [Monitor your API usage](https://ai.dev/usage?tab=rate-limit)
+                        """)
+                    
             except requests.exceptions.Timeout:
-                st.error("⏱️ Request timed out after 10 minutes. This usually means:")
+                st.error("⏱️ Request timed out after 15 minutes. This usually means:")
                 st.markdown("""
-                - The scraping is taking too long (website slow/blocking)
-                - Try with fewer products (3 instead of 5+)
-                - Check if the backend is still running
-                - Refresh and try again
+                - Analysis is taking too long (each product + AI analysis takes ~30-60 seconds)
+                - **Recommendation:** Use only 3 products for faster results
+                - The backend might still be processing - check terminal for progress
+                - STP analysis with Gemini can take 2-3 minutes alone
+                - Try again with fewer products or check backend logs
                 """)
             except requests.exceptions.ConnectionError:
                 st.error(f"🔌 Cannot connect to API at {api_url}. Make sure the backend is running!")
