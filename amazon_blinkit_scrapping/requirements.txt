@@ -8,3 +8,7 @@ scipy
 fastapi
 uvicorn
 pydantic
+google-generativeai
+python-dotenv
+newsapi-python
+newsapi-python

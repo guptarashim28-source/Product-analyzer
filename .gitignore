@@ -31,3 +31,28 @@ __pycache__/
 # Logs
 *.log
 logs/
+
+# Scraped Data (optional - remove these lines if you want to commit scraped HTML/CSV)
+html_pages/
+*.csv
+
+# Selenium/Browser
+chromedriver
+geckodriver
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# Test files
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Build files
+dist/
+build/
+*.egg-info/
+.eggs/
+
+# OS
+Thumbs.db

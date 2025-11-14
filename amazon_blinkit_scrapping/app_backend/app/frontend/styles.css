@@ -3,6 +3,8 @@ body { font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-se
 .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
 header { margin-bottom: 16px; }
 h1 { margin: 0 0 6px; font-size: 24px; }
+h2 { margin: 24px 0 12px; }
+h3 { margin: 16px 0 8px; }
 .card { background: #fff; padding: 16px; border-radius: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); margin: 12px 0; }
 .field { display: flex; flex-direction: column; margin-bottom: 12px; }
 .field label { font-weight: 600; margin-bottom: 6px; }
@@ -18,3 +20,64 @@ table { width: 100%; border-collapse: collapse; background: #fff; border-radius:
 th, td { padding: 10px 12px; border-bottom: 1px solid #eee; text-align: left; font-size: 14px; }
 th { background: #f2f5ff; }
 footer { margin-top: 24px; color: #555; }
+
+/* AI Analysis Styles */
+.gap-section { margin: 20px 0; padding: 16px; background: #f9fafb; border-radius: 8px; }
+.gap-section h3 { margin-top: 0; color: #1163ff; }
+.gap-section ul { margin: 8px 0; padding-left: 24px; }
+.gap-item { margin: 12px 0; padding: 12px; background: #fff; border-radius: 6px; border-left: 3px solid #1163ff; }
+.priority { padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: 600; margin-left: 8px; }
+.priority-high { background: #fee; color: #c00; }
+.priority-medium { background: #ffeaa7; color: #d63031; }
+.priority-low { background: #dfe6e9; color: #636e72; }
+.recommended-product { background: #e8f4f8; border: 2px solid #1163ff; }
+
+.product-analysis { margin: 16px 0; }
+.product-meta { display: flex; gap: 12px; margin: 8px 0; font-size: 13px; color: #555; }
+.health-score { background: #00b894; color: white; padding: 2px 8px; border-radius: 4px; font-weight: 600; }
+.analysis-section { margin: 12px 0; }
+.analysis-section strong { color: #1163ff; display: block; margin-bottom: 4px; }
+.pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 12px 0; }
+.pros, .cons { padding: 12px; border-radius: 6px; }
+.pros { background: #f0fdf4; border-left: 3px solid #22c55e; }
+.cons { background: #fef2f2; border-left: 3px solid #ef4444; }
+.pros ul, .cons ul { margin: 8px 0; padding-left: 20px; }
+.pros strong { color: #22c55e; }
+.cons strong { color: #ef4444; }
+
+/* News & Trends Styles */
+.news-tabs { display: flex; gap: 8px; margin-bottom: 16px; }
+.tab-button { background: #f2f5ff; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: 600; color: #555; transition: all 0.2s; }
+.tab-button.active { background: #1163ff; color: white; }
+.tab-button:hover { background: #0052e0; color: white; }
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+.news-header { margin-bottom: 16px; padding-bottom: 12px; border-bottom: 2px solid #eee; }
+.date-range { color: #666; font-size: 13px; margin-top: 4px; }
+
+.news-grid { display: grid; gap: 16px; }
+.news-card { display: flex; gap: 16px; padding: 16px; background: #f9fafb; border-radius: 8px; transition: transform 0.2s; }
+.news-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+.news-image { width: 180px; height: 120px; object-fit: cover; border-radius: 6px; flex-shrink: 0; }
+.news-content { flex: 1; }
+.news-content h4 { margin: 0 0 8px; font-size: 16px; }
+.news-content h4 a { color: #111; text-decoration: none; }
+.news-content h4 a:hover { color: #1163ff; text-decoration: underline; }
+.news-source { color: #666; font-size: 12px; margin: 4px 0; }
+.news-description { color: #555; font-size: 14px; margin: 8px 0 0; line-height: 1.5; }
+.news-error { padding: 20px; text-align: center; background: #fff3cd; border-radius: 8px; color: #856404; }
+.news-error a { color: #1163ff; font-weight: 600; }
+
+.insights-section { margin-bottom: 20px; padding: 16px; background: #e8f4f8; border-radius: 8px; border-left: 4px solid #1163ff; }
+.insights-section h4 { margin-top: 0; color: #1163ff; }
+.insights-list { margin: 12px 0; padding-left: 24px; }
+.insights-list li { margin: 8px 0; line-height: 1.6; }
+
+.trends-list { display: flex; flex-direction: column; gap: 12px; }
+.trend-card { padding: 16px; background: #f9fafb; border-radius: 8px; border-left: 3px solid #00b894; transition: transform 0.2s; }
+.trend-card:hover { transform: translateX(4px); background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.trend-card h4 { margin: 0 0 8px; font-size: 15px; }
+.trend-card h4 a { color: #111; text-decoration: none; }
+.trend-card h4 a:hover { color: #00b894; }
+.trend-card p { margin: 8px 0; color: #555; font-size: 14px; line-height: 1.5; }

@@ -10,8 +10,8 @@
   <body>
     <div class="container">
       <header>
-        <h1>Blinkit Product Insights</h1>
-        <p>Compare products across pincodes and see brand frequency and price per 100g.</p>
+        <h1>Blinkit Product Insights & AI Analysis</h1>
+        <p>Compare products, analyze with AI, and discover market opportunities.</p>
       </header>
 
       <section class="card">
@@ -30,6 +30,9 @@
             <label class="checkbox">
               <input id="save_html" type="checkbox" /> Save raw HTML (debug)
             </label>
+            <label class="checkbox">
+              <input id="ai_analysis" type="checkbox" /> Enable AI Analysis (Gemini)
+            </label>
             <button type="submit">Fetch Insights</button>
           </div>
         </form>
@@ -37,11 +40,35 @@
 
       <section id="loading" class="hidden">
         <div class="spinner"></div>
-        <p>Scraping Blinkit... This can take ~30–60 seconds per pincode.</p>
+        <p id="loading-message">Scraping Blinkit... This can take ~30–60 seconds per pincode.</p>
       </section>
 
       <section id="results" class="hidden">
         <div id="summary"></div>
+        
+        <!-- News & Trends Section -->
+        <div id="news-trends" class="hidden">
+          <h2>📰 Latest News & Market Trends</h2>
+          <div class="news-tabs">
+            <button class="tab-button active" data-tab="news">Trending News</button>
+            <button class="tab-button" data-tab="trends">Market Trends</button>
+          </div>
+          <div id="news-content" class="card tab-content active"></div>
+          <div id="trends-content" class="card tab-content"></div>
+        </div>
+        
+        <!-- Gap Analysis Section -->
+        <div id="gap-analysis" class="hidden">
+          <h2>🎯 Market Gap Analysis & Product Recommendation</h2>
+          <div id="gap-content" class="card"></div>
+        </div>
+
+        <!-- Analyzed Products Section -->
+        <div id="analyzed-products" class="hidden">
+          <h2>📊 AI Product Analysis</h2>
+          <div id="analysis-list"></div>
+        </div>
+
         <div class="actions card" style="justify-content: space-between;">
           <div></div>
           <button id="download-csv" type="button">Download CSV</button>

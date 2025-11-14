@@ -197,15 +197,20 @@ def _parse_products(html: str) -> List[Dict[str, Any]]:
             p100 = price_per_100g(price, grams)
             brand = extract_brand(name)
 
-            products.append({
-                "name": name or "N/A",
-                "brand": brand,
-                "weight": weight or "N/A",
-                "price": price,
-                "price_text": price_text,
-                "grams": grams,
-                "price_per_100g": p100
-            })
+            # Filter out invalid products (search headers, empty products, etc.)
+            if (name and len(name) > 5 and 
+                not name.lower().startswith('showing') and
+                not name.lower().startswith('results for') and
+                price is not None and price > 0):
+                products.append({
+                    "name": name or "N/A",
+                    "brand": brand,
+                    "weight": weight or "N/A",
+                    "price": price,
+                    "price_text": price_text,
+                    "grams": grams,
+                    "price_per_100g": p100
+                })
         except Exception:
             continue
 
