@@ -1,14 +1,25 @@
 # backend.py
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import Dict
 from scraper_logic import scrape_blinkit, analyze_products_with_gemini_and_news
 
 app = FastAPI(title="Blinkit Marketing Analyzer")
 
+# Add CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allows all origins
+    allow_credentials=True,
+    allow_methods=["*"],  # Allows all methods
+    allow_headers=["*"],  # Allows all headers
+)
+
 class AnalyzeRequest(BaseModel):
     category: str
     max_products: int = 30
+    pincode: str = "380015"
 
 @app.post("/analyze")
 def analyze(req: AnalyzeRequest) -> Dict:
@@ -18,7 +29,7 @@ def analyze(req: AnalyzeRequest) -> Dict:
     3. Return JSON report
     """
     try:
-        products = scrape_blinkit(req.category, req.max_products)
+        products = scrape_blinkit(req.category, req.max_products, req.pincode)
         report = analyze_products_with_gemini_and_news(products, req.category)
         return {
             "category": req.category,

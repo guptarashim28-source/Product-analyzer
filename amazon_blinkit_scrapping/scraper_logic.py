@@ -14,7 +14,7 @@ from app_backend.app.utils.gemini_helper import analyze_top_products, generate_g
 from app_backend.app.utils.news_helper import get_trending_news, get_market_trends
 
 
-def scrape_blinkit(category: str, max_products: int = 30) -> List[Dict]:
+def scrape_blinkit(category: str, max_products: int = 30, pincode: str = "380015") -> List[Dict]:
     """
     Scrape Blinkit for products in a given category.
     Returns a list of product dicts with complete information.
@@ -22,6 +22,7 @@ def scrape_blinkit(category: str, max_products: int = 30) -> List[Dict]:
     Args:
         category: Product category to search (e.g., 'snacks', 'protein bar')
         max_products: Maximum number of products to return
+        pincode: Pincode for location-based search (default: 380015)
     
     Returns:
         List of product dictionaries with:
@@ -37,8 +38,9 @@ def scrape_blinkit(category: str, max_products: int = 30) -> List[Dict]:
         - grams: Parsed weight in grams
         - price_per_100g: Price per 100g for comparison
     """
-    # Default pincode (can be made configurable)
-    pincode = os.getenv("DEFAULT_PINCODE", "380015")
+    # Use provided pincode or fall back to environment variable
+    if not pincode:
+        pincode = os.getenv("DEFAULT_PINCODE", "380015")
     
     # Scrape products
     products, _ = scrape_for_pincode_query(
