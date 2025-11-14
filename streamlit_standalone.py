@@ -81,9 +81,23 @@ if analyze_button:
                     st.error("❌ No products found. Please try a different category or pincode.")
                     st.stop()
                 
+                st.success(f"✅ Scraped {len(products)} products successfully!")
+                
                 # Step 2: Analyze with AI
-                st.info(f"🤖 Analyzing {len(products)} products with Gemini AI...")
-                report = analyze_products_with_gemini_and_news(products, category)
+                st.info(f"🤖 Analyzing {len(products)} products with Gemini AI... This may take 2-3 minutes...")
+                
+                try:
+                    report = analyze_products_with_gemini_and_news(products, category)
+                    st.success("✅ AI Analysis complete!")
+                except Exception as analysis_error:
+                    st.error(f"⚠️ Analysis error: {str(analysis_error)}")
+                    st.warning("Showing scraped products without AI analysis...")
+                    report = {
+                        "products": products[:3],
+                        "gap_analysis": None,
+                        "news": [],
+                        "news_insights": None
+                    }
                 
                 # Display results
                 st.success(f"✅ Analysis complete! Found {len(products)} products.")
