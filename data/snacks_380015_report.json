@@ -1,0 +1,611 @@
+{
+  "summary": "Scraped 24 products, analyzed top 3 in detail.  Found 10 recent news articles.",
+  "all_products": [
+    {
+      "id": "Red_Red_Rock_Deli_Potato_Chips_(Baked_Olive_&_Gree",
+      "title": "Red Rock Deli Potato Chips (Baked Olive & Greek Salad)",
+      "brand": "Red",
+      "price": 51.0,
+      "rating": 4.0,
+      "description": "53 g",
+      "name": "Red Rock Deli Potato Chips (Baked Olive & Greek Salad)",
+      "weight": "53 g",
+      "price_text": "₹51",
+      "grams": 53.0,
+      "price_per_100g": 96.23
+    },
+    {
+      "id": "Kurkure_Kurkure_Solid_Masti_Masala_Twisteez_Crisps",
+      "title": "Kurkure Solid Masti Masala Twisteez Crisps",
+      "brand": "Kurkure",
+      "price": 20.0,
+      "rating": 4.0,
+      "description": "66.6 g",
+      "name": "Kurkure Solid Masti Masala Twisteez Crisps",
+      "weight": "66.6 g",
+      "price_text": "₹20",
+      "grams": 66.6,
+      "price_per_100g": 30.03
+    },
+    {
+      "id": "Kurkure_Kurkure_Masala_Munch_Crisps_2",
+      "title": "Kurkure Masala Munch Crisps",
+      "brand": "Kurkure",
+      "price": 20.0,
+      "rating": 4.0,
+      "description": "75 g",
+      "name": "Kurkure Masala Munch Crisps",
+      "weight": "75 g",
+      "price_text": "₹20",
+      "grams": 75.0,
+      "price_per_100g": 26.67
+    },
+    {
+      "id": "Balaji_Balaji_Crunchex_Chilli_Tadka_Potato_Wafers_",
+      "title": "Balaji Crunchex Chilli Tadka Potato Wafers",
+      "brand": "Balaji",
+      "price": 40.0,
+      "rating": 4.0,
+      "description": "135 g",
+      "name": "Balaji Crunchex Chilli Tadka Potato Wafers",
+      "weight": "135 g",
+      "price_text": "₹40",
+      "grams": 135.0,
+      "price_per_100g": 29.63
+    },
+    {
+      "id": "Red_Red_Rock_Deli_Cheddar_&_Parmesan_Risotto_Baked",
+      "title": "Red Rock Deli Cheddar & Parmesan Risotto Baked Potato Chips",
+      "brand": "Red",
+      "price": 51.0,
+      "rating": 4.0,
+      "description": "53 g",
+      "name": "Red Rock Deli Cheddar & Parmesan Risotto Baked Potato Chips",
+      "weight": "53 g",
+      "price_text": "₹51",
+      "grams": 53.0,
+      "price_per_100g": 96.23
+    },
+    {
+      "id": "Uncle_Uncle_Chipps_Spicy_Treat_Flavour_Potato_Chip",
+      "title": "Uncle Chipps Spicy Treat Flavour Potato Chips",
+      "brand": "Uncle",
+      "price": 20.0,
+      "rating": 4.0,
+      "description": "53 g",
+      "name": "Uncle Chipps Spicy Treat Flavour Potato Chips",
+      "weight": "53 g",
+      "price_text": "₹20",
+      "grams": 53.0,
+      "price_per_100g": 37.74
+    },
+    {
+      "id": "Balaji_Balaji_Crunchem_Masala_Masti_Wafers_6",
+      "title": "Balaji Crunchem Masala Masti Wafers",
+      "brand": "Balaji",
+      "price": 40.0,
+      "rating": 4.0,
+      "description": "135 g",
+      "name": "Balaji Crunchem Masala Masti Wafers",
+      "weight": "135 g",
+      "price_text": "₹40",
+      "grams": 135.0,
+      "price_per_100g": 29.63
+    },
+    {
+      "id": "Markstor_Markstor_Original_Kimia_Dates_(Khajur)_7",
+      "title": "Markstor Original Kimia Dates (Khajur)",
+      "brand": "Markstor",
+      "price": 275.0,
+      "rating": 4.0,
+      "description": "400 g",
+      "name": "Markstor Original Kimia Dates (Khajur)",
+      "weight": "400 g",
+      "price_text": "₹275",
+      "grams": 400.0,
+      "price_per_100g": 68.75
+    },
+    {
+      "id": "Cheetos_Cheetos_Classic_Puffs_-_Cheese_Flavoured_8",
+      "title": "Cheetos Classic Puffs - Cheese Flavoured",
+      "brand": "Cheetos",
+      "price": 101.0,
+      "rating": 4.0,
+      "description": "135 g",
+      "name": "Cheetos Classic Puffs - Cheese Flavoured",
+      "weight": "135 g",
+      "price_text": "₹101",
+      "grams": 135.0,
+      "price_per_100g": 74.81
+    },
+    {
+      "id": "Red_Red_Rock_Deli_kettle_Chips_(Basil_Thai_Sweet_C",
+      "title": "Red Rock Deli kettle Chips (Basil Thai Sweet Chilli)",
+      "brand": "Red",
+      "price": 51.0,
+      "rating": 4.0,
+      "description": "58 g",
+      "name": "Red Rock Deli kettle Chips (Basil Thai Sweet Chilli)",
+      "weight": "58 g",
+      "price_text": "₹51",
+      "grams": 58.0,
+      "price_per_100g": 87.93
+    },
+    {
+      "id": "Markstor_Markstor_Ajwa_Al-Saudi_Dates_10",
+      "title": "Markstor Ajwa Al-Saudi Dates",
+      "brand": "Markstor",
+      "price": 875.0,
+      "rating": 4.0,
+      "description": "500 g",
+      "name": "Markstor Ajwa Al-Saudi Dates",
+      "weight": "500 g",
+      "price_text": "₹875",
+      "grams": 500.0,
+      "price_per_100g": 175.0
+    },
+    {
+      "id": "Sbooch_Sbooch_Gor_Keri_Indian_Sparkling_Kombucha_T",
+      "title": "Sbooch Gor Keri Indian Sparkling Kombucha Tea",
+      "brand": "Sbooch",
+      "price": 187.0,
+      "rating": 4.0,
+      "description": "275 ml",
+      "name": "Sbooch Gor Keri Indian Sparkling Kombucha Tea",
+      "weight": "275 ml",
+      "price_text": "₹187",
+      "grams": null,
+      "price_per_100g": null
+    },
+    {
+      "id": "Sweet_Sweet_Karam_Coffee_Andhra_Spicy_Murukku_12",
+      "title": "Sweet Karam Coffee Andhra Spicy Murukku",
+      "brand": "Sweet",
+      "price": 83.0,
+      "rating": 4.0,
+      "description": "95 g",
+      "name": "Sweet Karam Coffee Andhra Spicy Murukku",
+      "weight": "95 g",
+      "price_text": "₹83",
+      "grams": 95.0,
+      "price_per_100g": 87.37
+    },
+    {
+      "id": "To_To_Be_Honest_Mix_Veggie_Chips_(Rock_salt)_13",
+      "title": "To Be Honest Mix Veggie Chips (Rock salt)",
+      "brand": "To",
+      "price": 135.0,
+      "rating": 4.0,
+      "description": "60 g",
+      "name": "To Be Honest Mix Veggie Chips (Rock salt)",
+      "weight": "60 g",
+      "price_text": "₹135",
+      "grams": 60.0,
+      "price_per_100g": 225.0
+    },
+    {
+      "id": "Coca-Cola_Coca-Cola_Diet_Coke_Soft_Drink_14",
+      "title": "Coca-Cola Diet Coke Soft Drink",
+      "brand": "Coca-Cola",
+      "price": 40.0,
+      "rating": 4.0,
+      "description": "300 ml",
+      "name": "Coca-Cola Diet Coke Soft Drink",
+      "weight": "300 ml",
+      "price_text": "₹40",
+      "grams": null,
+      "price_per_100g": null
+    },
+    {
+      "id": "Nongshim_Nongshim_Shrimp_Flavoured_Crackers_Chips_",
+      "title": "Nongshim Shrimp Flavoured Crackers Chips",
+      "brand": "Nongshim",
+      "price": 109.0,
+      "rating": 4.0,
+      "description": "75 g",
+      "name": "Nongshim Shrimp Flavoured Crackers Chips",
+      "weight": "75 g",
+      "price_text": "₹109",
+      "grams": 75.0,
+      "price_per_100g": 145.33
+    },
+    {
+      "id": "Too_Too_Yumm_Classic_Salted_Nendran_Banana_Chips_1",
+      "title": "Too Yumm Classic Salted Nendran Banana Chips",
+      "brand": "Too",
+      "price": 64.0,
+      "rating": 4.0,
+      "description": "75 g",
+      "name": "Too Yumm Classic Salted Nendran Banana Chips",
+      "weight": "75 g",
+      "price_text": "₹64",
+      "grams": 75.0,
+      "price_per_100g": 85.33
+    },
+    {
+      "id": "The_The_Select_Aisle_Dark_Choco_Chips_17",
+      "title": "The Select Aisle Dark Choco Chips",
+      "brand": "The",
+      "price": 63.0,
+      "rating": 4.0,
+      "description": "50 g",
+      "name": "The Select Aisle Dark Choco Chips",
+      "weight": "50 g",
+      "price_text": "₹63",
+      "grams": 50.0,
+      "price_per_100g": 126.0
+    },
+    {
+      "id": "Lay's_Lay's_Extra_Barbecue_Potato_Chips_18",
+      "title": "Lay's Extra Barbecue Potato Chips",
+      "brand": "Lay's",
+      "price": 190.0,
+      "rating": 4.0,
+      "description": "50 g",
+      "name": "Lay's Extra Barbecue Potato Chips",
+      "weight": "50 g",
+      "price_text": "₹190",
+      "grams": 50.0,
+      "price_per_100g": 380.0
+    },
+    {
+      "id": "The_The_Select_Aisle_Milk_Choco_Chips_19",
+      "title": "The Select Aisle Milk Choco Chips",
+      "brand": "The",
+      "price": 69.0,
+      "rating": 4.0,
+      "description": "50 g",
+      "name": "The Select Aisle Milk Choco Chips",
+      "weight": "50 g",
+      "price_text": "₹69",
+      "grams": 50.0,
+      "price_per_100g": 138.0
+    },
+    {
+      "id": "Pringles_Pringles_Original_Potato_Chips_(40_g)_20",
+      "title": "Pringles Original Potato Chips (40 g)",
+      "brand": "Pringles",
+      "price": 50.0,
+      "rating": 4.0,
+      "description": "40 g",
+      "name": "Pringles Original Potato Chips (40 g)",
+      "weight": "40 g",
+      "price_text": "₹50",
+      "grams": 40.0,
+      "price_per_100g": 125.0
+    },
+    {
+      "id": "Lay's_Lay's_Crunch_Extra_Cheese_Potato_Chips_21",
+      "title": "Lay's Crunch Extra Cheese Potato Chips",
+      "brand": "Lay's",
+      "price": 190.0,
+      "rating": 4.0,
+      "description": "50 g",
+      "name": "Lay's Crunch Extra Cheese Potato Chips",
+      "weight": "50 g",
+      "price_text": "₹190",
+      "grams": 50.0,
+      "price_per_100g": 380.0
+    },
+    {
+      "id": "Lay's_Lay's_Potato_Chips_(Hot_&_Spicy)_22",
+      "title": "Lay's Potato Chips (Hot & Spicy)",
+      "brand": "Lay's",
+      "price": 190.0,
+      "rating": 4.0,
+      "description": "50 g",
+      "name": "Lay's Potato Chips (Hot & Spicy)",
+      "weight": "50 g",
+      "price_text": "₹190",
+      "grams": 50.0,
+      "price_per_100g": 380.0
+    },
+    {
+      "id": "Nongshim_Nongshim_Onion_Ring_Puffs_23",
+      "title": "Nongshim Onion Ring Puffs",
+      "brand": "Nongshim",
+      "price": 109.0,
+      "rating": 4.0,
+      "description": "50 g",
+      "name": "Nongshim Onion Ring Puffs",
+      "weight": "50 g",
+      "price_text": "₹109",
+      "grams": 50.0,
+      "price_per_100g": 218.0
+    }
+  ],
+  "products": [
+    {
+      "id": "Red_Red_Rock_Deli_Potato_Chips_(Baked_Olive_&_Gree",
+      "title": "Red Rock Deli Potato Chips (Baked Olive & Greek Salad)",
+      "brand": "Red",
+      "price": 51.0,
+      "rating": 4.0,
+      "description": "53 g",
+      "name": "Red Rock Deli Potato Chips (Baked Olive & Greek Salad)",
+      "weight": "53 g",
+      "price_text": "₹51",
+      "grams": 53.0,
+      "price_per_100g": 96.23,
+      "analysis": {
+        "description": "These are Red Rock Deli Potato Chips, a product line often associated with premium snacking under the \"Red\" brand, offering a gourmet experience with a distinctive \"Baked Olive & Greek Salad\" flavor. This 53g pack is designed for individual indulgence and sophisticated savory cravings.",
+        "nutrition_analysis": "As a potato chip product, it's typically high in calories, fats (likely unhealthy saturated/trans fats if fried), and sodium. While \"Baked Olive\" might hint at a healthier profile, it primarily describes the flavor, not necessarily the chip's cooking method. It offers minimal essential vitamins, minerals, or fiber, and should be considered an occasional treat rather than a nutritional source.",
+        "ingredient_analysis": "Key ingredients would primarily include potatoes, vegetable oil (e.g., sunflower, palm oil, etc.), and a complex blend of seasonings to achieve the \"Baked Olive & Greek Salad\" flavor. This typically involves salt, sugar, herbs like oregano/thyme, olive powder/flavor, garlic powder, onion powder, acidity regulators, and potentially flavor enhancers (like MSG) and anti-caking agents.",
+        "pros": [
+          "Unique and sophisticated \"Baked Olive & Greek Salad\" flavor profile appeals to adventurous and gourmet palates.",
+          "The \"Red Rock Deli\" branding suggests a premium product with potentially higher quality ingredients and a distinctive snacking experience.",
+          "Convenient 53g single-serve pack size is suitable for portion control, individual indulgence, or on-the-go snacking.",
+          "Offers a satisfying savory craving for those seeking a richer, more complex chip flavor."
+        ],
+        "cons": [
+          "High price per 100g (₹96.23) makes it a relatively expensive snack compared to standard potato chips.",
+          "Likely high in calories, unhealthy fats, and sodium, contributing to an unhealthy diet if consumed frequently or in large quantities.",
+          "Offers limited nutritional value, providing minimal essential vitamins, minerals, or dietary fiber.",
+          "Small serving size (53g) might not be satisfying for some consumers, potentially leading to overconsumption if multiple packs are bought."
+        ],
+        "health_score": "3/10 - Justification: As a processed potato chip, it's primarily an indulgence product. It's likely high in calories, unhealthy fats, and sodium with minimal nutritional benefits. The small portion size is the only slight positive for moderation, but doesn't make it inherently healthy.",
+        "target_audience": "Consumers seeking a premium, gourmet, and unique-flavored snack experience. Individuals willing to pay more for quality and distinctive tastes, often young adults and working professionals looking for an indulgent savory treat or a sophisticated snack option."
+      }
+    },
+    {
+      "id": "Kurkure_Kurkure_Solid_Masti_Masala_Twisteez_Crisps",
+      "title": "Kurkure Solid Masti Masala Twisteez Crisps",
+      "brand": "Kurkure",
+      "price": 20.0,
+      "rating": 4.0,
+      "description": "66.6 g",
+      "name": "Kurkure Solid Masti Masala Twisteez Crisps",
+      "weight": "66.6 g",
+      "price_text": "₹20",
+      "grams": 66.6,
+      "price_per_100g": 30.03,
+      "analysis": {
+        "description": "Kurkure Solid Masti Masala Twisteez Crisps are a popular, crunchy snack from the Kurkure brand. They feature an intense, spicy masala flavor profile in a unique twisted shape, designed for a fun and engaging eating experience.",
+        "nutrition_analysis": "As a fried crisp product, it is primarily a source of empty calories, high in unhealthy fats (from frying oil), refined carbohydrates (from cereal meals), and sodium (from salt and flavoring). It offers negligible amounts of protein, fiber, vitamins, or minerals, providing no significant health benefits and is not a healthy dietary choice.",
+        "ingredient_analysis": "Typical ingredients would include various cereal meals (like rice, corn, and gram), edible vegetable oil for frying (such as palm oil), a blend of spices and condiments (masala), salt, sugar, flavor enhancers (e.g., MSG), and acidity regulators. It may also contain anti-caking agents and artificial colors or flavors common in processed snacks.",
+        "pros": [
+          "Offers a bold and satisfying spicy masala flavor profile.",
+          "Provides an enjoyable crunchy texture and a unique, fun twisted shape.",
+          "Convenient and ready-to-eat, making it suitable for quick cravings or on-the-go snacking.",
+          "Priced affordably at ₹20, making it an accessible impulse purchase for many consumers.",
+          "Benefits from strong brand recognition and trust associated with Kurkure as a leading snack brand."
+        ],
+        "cons": [
+          "High in unhealthy fats (likely saturated or trans fats from frying) and refined carbohydrates.",
+          "Offers very low nutritional value, providing minimal essential vitamins, minerals, or fiber.",
+          "Likely contains high levels of sodium, which can be a concern for blood pressure and overall health.",
+          "May include artificial flavors, colors, and preservatives, which some consumers prefer to avoid.",
+          "Calorically dense, contributing to excess calorie intake if consumed frequently or in large portions."
+        ],
+        "health_score": "3/10 - This is an ultra-processed, fried snack primarily composed of unhealthy fats, refined carbs, and high sodium, offering negligible nutritional benefits and contributing to non-essential calorie intake.",
+        "target_audience": "Primarily children, teenagers, and young adults seeking a quick, indulgent, and intensely flavored spicy snack. Also targets impulse buyers and consumers who enjoy bold, savory Indian-style tastes."
+      }
+    },
+    {
+      "id": "Kurkure_Kurkure_Masala_Munch_Crisps_2",
+      "title": "Kurkure Masala Munch Crisps",
+      "brand": "Kurkure",
+      "price": 20.0,
+      "rating": 4.0,
+      "description": "75 g",
+      "name": "Kurkure Masala Munch Crisps",
+      "weight": "75 g",
+      "price_text": "₹20",
+      "grams": 75.0,
+      "price_per_100g": 26.67,
+      "analysis": {
+        "description": "Kurkure Masala Munch Crisps are a popular, crunchy snack from the brand Kurkure, known for their distinctive texture and bold Indian masala flavoring. Packaged in a convenient 75g size, these corn-based crisps offer a savory and spicy taste experience.",
+        "nutrition_analysis": "Being a processed crisp snack, Kurkure Masala Munch is typically high in calories, carbohydrates, and fats, including saturated and potentially trans fats from the cooking oil. It is also usually high in sodium due to salt and flavorings. It offers negligible amounts of protein, dietary fiber, vitamins, or minerals, making it a poor source of essential nutrients and offering no significant health benefits.",
+        "ingredient_analysis": "Typical ingredients for Kurkure products include corn meal (or rice meal), edible vegetable oil (e.g., palm oil, rice bran oil), and a blend of spices and condiments such as chilli powder, cumin, onion powder, garlic powder, dried mango powder, and salt. It often contains acidity regulators, sugar, and flavor enhancers like MSG (E621) to achieve its characteristic 'Masala Munch' flavor profile.",
+        "pros": [
+          "Delivers a strong, authentic Indian masala flavor profile that is widely appealing and satisfying.",
+          "Offers a unique and satisfying crunchy texture, distinct from traditional potato chips, enhancing the snacking experience.",
+          "Highly affordable at ₹20 for 75g (₹26.67 per 100g), making it accessible for a wide consumer base.",
+          "Convenient and ready-to-eat snack, perfect for on-the-go consumption, quick cravings, or as a side with meals."
+        ],
+        "cons": [
+          "High in calories, unhealthy fats (saturated/trans), and sodium, contributing to potential health risks with regular and excessive consumption.",
+          "A highly processed food product, often containing artificial flavors, colors, and flavor enhancers like MSG.",
+          "Low nutritional value, offering negligible amounts of essential vitamins, minerals, protein, or dietary fiber.",
+          "Can lead to overconsumption due to its high palatability, contributing to excess calorie intake and unhealthy eating habits."
+        ],
+        "health_score": "2/10 - This product is a highly processed snack, primarily providing empty calories, high levels of unhealthy fats, and sodium, with very limited nutritional value or health benefits.",
+        "target_audience": "Primarily targets children, teenagers, and young adults seeking an inexpensive, flavorful, and crunchy savory snack. Also suitable for families looking for a convenient option for casual snacking, parties, or movie nights."
+      }
+    }
+  ],
+  "gap_analysis": {
+    "market_overview": "The current Indian snack market, as seen through top products, is dominated by strong-flavored, convenient, and affordable options like Kurkure, alongside premium-priced gourmet potato chips such as Red Rock Deli. While both segments excel in taste and accessibility, they universally represent indulgent, highly processed items with negligible nutritional value and significant health drawbacks due to high fats, sodium, and refined carbohydrates.",
+    "common_strengths": [
+      "Offers strong, satisfying flavor profiles (e.g., spicy masala, unique gourmet)",
+      "Convenient and ready-to-eat for quick cravings or on-the-go snacking",
+      "Provides an enjoyable crunchy texture and often unique shapes"
+    ],
+    "common_weaknesses": [
+      "Very low nutritional value, providing minimal essential vitamins, minerals, or fiber",
+      "High in unhealthy fats (likely saturated or trans fats) and refined carbohydrates",
+      "High sodium content, a concern for blood pressure and overall health",
+      "Highly processed foods, often containing artificial flavors, colors, or enhancers"
+    ],
+    "market_gaps": [
+      {
+        "gap": "Lack of genuinely healthy and nutritionally beneficial savory snack options.",
+        "opportunity": "There is a significant and growing demand for snacks that are guilt-free, high in beneficial nutrients (fiber, protein), and cater to increasing health consciousness without compromising on taste. This taps into the wellness trend.",
+        "priority": "High"
+      },
+      {
+        "gap": "Absence of savory snack products that leverage whole grains, pulses, or real vegetables as primary ingredients.",
+        "opportunity": "Introducing products with transparent, natural ingredient lists can build trust and attract consumers looking for 'clean label' options and specific dietary benefits (e.g., plant-based, high fiber).",
+        "priority": "High"
+      },
+      {
+        "gap": "Limited innovation in snack formats beyond fried chips or extruded twists that offer a premium yet healthy proposition.",
+        "opportunity": "A baked, unique-textured product made from healthier bases can differentiate itself significantly from both the budget-friendly processed snacks and traditional premium chips, offering a novel experience.",
+        "priority": "Medium"
+      }
+    ],
+    "recommended_product": {
+      "product_concept": "Nutri-Crisps: Baked, multi-grain and vegetable-based crisps offering a high-fiber, protein-rich, and naturally flavored snacking experience, designed for guilt-free indulgence.",
+      "key_features": [
+        "Made from a blend of whole grains (e.g., ragi, quinoa, oats) and real vegetables (e.g., spinach, beetroot, sweet potato)",
+        "Baked, not fried, significantly reducing unhealthy fat content and calories",
+        "High in dietary fiber and a source of plant-based protein",
+        "Available in sophisticated, authentic Indian spice blends (e.g., 'Spicy Lentil & Curry Leaf', 'Smoky Herb & Garlic', 'Tangy Tomato & Basil')",
+        "No artificial flavors, colors, preservatives, or MSG"
+      ],
+      "target_price_range": "₹45 - ₹65 (for 50-70g pack)",
+      "usp": "The Deliciously Healthy Crunch: Wholesome ingredients, irresistible flavor, baked for your well-being.",
+      "target_audience": "Health-conscious millennials, busy professionals, families seeking nutritious alternatives for children, individuals following vegetarian/vegan diets, and consumers willing to pay a premium for healthy, quality snacks.",
+      "competitive_advantages": [
+        "Superior nutritional profile (high fiber, protein, low unhealthy fats) addressing primary market weaknesses.",
+        "Differentiated product form and texture that stands apart from existing chips and extruded snacks.",
+        "Transparency in ingredients and natural processing methods builds strong consumer trust.",
+        "Taps into growing consumer trends for healthy, plant-based, and 'clean label' foods."
+      ]
+    },
+    "implementation_strategy": {
+      "ingredients_to_include": [
+        "Whole grains (e.g., ragi, quinoa, brown rice, oats)",
+        "Real vegetables (e.g., spinach puree, beetroot powder, sweet potato flour)",
+        "Lentil/pulse flours (e.g., chickpea flour, moong dal flour)",
+        "Cold-pressed healthy oils (e.g., olive oil, rice bran oil in moderation)",
+        "Natural spices and herbs, sea salt"
+      ],
+      "ingredients_to_avoid": [
+        "Refined flour (Maida)",
+        "Palm oil or hydrogenated fats",
+        "Artificial flavors, colors, or preservatives",
+        "Monosodium Glutamate (MSG)",
+        "Excessive sodium and refined sugars"
+      ],
+      "packaging_recommendations": "Eco-friendly, matte-finish resealable pouches for freshness. Prominent 'Baked, Not Fried', 'High Fiber', 'Source of Protein', and 'No Artificials' claims. Clear visual representation of real ingredients. Available in portion-controlled single-serve packs (40-50g) and larger multi-serve family packs.",
+      "pricing_strategy": "Premium-value pricing, justified by superior ingredients, health benefits, and innovative processing. Offer introductory discounts and combo packs. Emphasize value beyond just quantity, highlighting satiety and health benefits for the price."
+    },
+    "success_metrics": [
+      "Sales volume and market share growth within the healthy snacks segment.",
+      "High repeat purchase rates and customer loyalty measured through loyalty programs or surveys.",
+      "Positive consumer perception and brand sentiment via social media engagement and online reviews.",
+      "Achieving wide distribution across modern trade, e-commerce platforms, and health/organic stores.",
+      "Meeting target profitability margins and contribution per unit."
+    ]
+  },
+  "news_insights": [
+    {
+      "title": "Hershey creates new holiday candy to boost slowing sales",
+      "description": "With the winter holidays just weeks away, it's hard not to reminisce about childhood memories, when falling asleep on Christmas Eve felt impossible, consumed...",
+      "url": "https://www.thestreet.com/retail/hershey-creates-new-holiday-candy-to-boost-slowing-sales",
+      "source": "TheStreet",
+      "published_at": "2025-11-09T17:33:00Z",
+      "image_url": "https://media.zenfs.com/en/thestreet_881/83d7b4f0288cd3e881fe8c89f7a3c301"
+    },
+    {
+      "title": "United Airlines Follows Southwest With New Change for Customers",
+      "description": "It's obviously become quite common in recent years for airlines to embrace rewards credit cards, offering customers rewards points on their purchases that...",
+      "url": "https://www.mensjournal.com/travel/united-airlines-follows-southwest-with-new-change-for-customers",
+      "source": "Men's Journal",
+      "published_at": "2025-11-09T15:27:03Z",
+      "image_url": "https://media.zenfs.com/en/men_s_journal_718/cff86debd67ba7ffbd19fe0cd5ffbee8"
+    },
+    {
+      "title": "San Jose grocer gives $100 shopping spree to struggling SNAP beneficiaries: 'Give back'",
+      "description": "As the government shutdown reaches another historic day, Bay Area businesses are stepping up to help struggling families who are cut off from SNAP food...",
+      "url": "https://abc7news.com/post/san-jose-grocer-arteagas-food-center-gives-100-shopping-spree-struggling-snap-beneficiaries/18135410/",
+      "source": "KGO-TV",
+      "published_at": "2025-11-10T03:54:30Z",
+      "image_url": "https://s.yimg.com/ny/api/res/1.2/ZaGrU8KfPd8t.zHX5o7vgw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://media.zenfs.com/en/kgo_articles_913/0d32aa936cd04f8161def3c6b753b5a6"
+    },
+    {
+      "title": "Everything a sports dietitian — and busy mom of 2 — eats to build muscle and fuel for workouts",
+      "description": "A sports dietitian shared what she eats in a day, from homemade chicken patties to soup with cottage cheese.",
+      "url": "https://www.businessinsider.com/sports-dietitian-mom-diet-build-muscle-strength-training-2025-11",
+      "source": "Business Insider",
+      "published_at": "2025-11-11T19:27:15Z",
+      "image_url": "https://i.insider.com/691353c862a04500b316255d?width=1200&format=jpeg"
+    },
+    {
+      "title": "Reliable Dividend Stocks To Consider In November 2025",
+      "description": "As the U.S. stock market navigates a challenging landscape marked by tech sector volatility and economic uncertainties due to a prolonged government shutdown...",
+      "url": "https://finance.yahoo.com/news/reliable-dividend-stocks-consider-november-113156974.html",
+      "source": "Yahoo Entertainment",
+      "published_at": "2025-11-10T11:31:56Z",
+      "image_url": "https://media.zenfs.com/en/simply_wall_st__316/75a6275a0d81fd5fbc47ebecee672e4c"
+    },
+    {
+      "title": "How this year’s Christmas ads ‘let real life in,’ from cost of living to masculinity",
+      "description": "We look at the Christmas ads that are out so far - and what they tell us about the year that’s been.",
+      "url": "https://www.bbc.com/news/articles/c0rp7exwq8ko",
+      "source": "BBC News",
+      "published_at": "2025-11-09T02:09:55Z",
+      "image_url": "https://ichef.bbci.co.uk/news/1024/branded_news/59df/live/615aa680-b8a9-11f0-9418-d155a3381a50.jpg"
+    },
+    {
+      "title": "‘I can’t compromise on these things in my life’: Tamannaah Bhatia reveals her favourite Indian snack",
+      "description": "Most of us who are on a strict diet or prefer healthier options, might not want to gorge on fried snacks, dripping with oil and filled with potatoes to the brim. Here's a healthy alternative for them",
+      "url": "https://indianexpress.com/article/lifestyle/food-wine/samosa-tamannaah-bhatia-reveals-her-favourite-food-she-cant-compromise-on-10206300/",
+      "source": "The Indian Express",
+      "published_at": "2025-11-09T08:58:28Z",
+      "image_url": "https://images.indianexpress.com/2025/08/@manishmalhotra05-your-glam-is-a-feeling-and-so-was-the-couture-party.-What-a-spectacular-night-2.jpg"
+    },
+    {
+      "title": "8 Goldfish Flavors That Never Should Have Been Retired",
+      "description": "Pepperidge Farm is known for bringing once-discontinued flavors back to grocery store shelves across the country, so there’s always a chance your old favorites could return one day.",
+      "url": "https://www.mentalfloss.com/food/discontinued-goldfish-flavors",
+      "source": "Mental Floss",
+      "published_at": "2025-11-13T12:51:00Z",
+      "image_url": "https://images2.minutemediacdn.com/image/upload/c_crop,x_0,y_0,w_2666,h_1499/c_fill,w_1440,ar_1440:810,f_auto,q_auto,g_auto/images/voltaxMediaLibrary/mmsport/mentalfloss/01k8xq7j7127v1f873rw.jpg"
+    },
+    {
+      "title": "For students who rely on SNAP, school food pantries offer some relief",
+      "description": "The food pantry at Brashear High School is open once a week, and each student gets about five minutes to shop. Any snacks they don't take often go to teachers, to offer to hungry pupils.",
+      "url": "https://www.npr.org/2025/11/11/nx-s1-5598314/high-school-food-pantry",
+      "source": "NPR",
+      "published_at": "2025-11-12T09:43:06Z",
+      "image_url": "https://npr.brightspotcdn.com/dims3/default/strip/false/crop/9504x5346+0+487/resize/1400/quality/100/format/jpeg/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F1b%2Fde%2F29671775473d98f28328fec48db8%2Fm2009592.jpg"
+    },
+    {
+      "title": "Ozempic and tight food budgets are giving way to the giant rise of tiny foods",
+      "description": "Food manufacturers, restaurants and grocery stores are selling Americans smaller portion sizes, thanks to the rise of both food prices and Ozempic.",
+      "url": "https://www.businessinsider.com/ozempic-food-prices-smaller-portions-restaurants-grocery-stores-2025-11",
+      "source": "Business Insider",
+      "published_at": "2025-11-13T09:37:01Z",
+      "image_url": "https://i.insider.com/6912175046c4547ecb057a5e?width=1200&format=jpeg"
+    }
+  ],
+  "ai_news_analysis": {
+    "key_trends": [
+      "Increased focus on health and wellness, including weight management and functional nutrition.",
+      "Significant economic pressure and cost-of-living concerns influencing consumer purchasing.",
+      "Growing demand for smaller, controlled portion sizes, driven by health trends (e.g., Ozempic) and food prices.",
+      "Consumer desire for comfort, nostalgia, and familiar tastes.",
+      "Increased reliance on food assistance programs and community support."
+    ],
+    "consumer_behaviors": [
+      "Actively seeking healthier snack options, often avoiding fried or high-calorie foods.",
+      "Prioritizing affordability and value for money in food purchases due to budget constraints.",
+      "Desire for portion control to manage diet and food costs.",
+      "Gravitating towards comforting and nostalgic products during uncertain times.",
+      "Looking for snacks that provide specific functional benefits, like muscle building or sustained energy."
+    ],
+    "market_opportunities": [
+      "Develop healthy, functional snacks (e.g., high-protein, low-sugar, fiber-rich) that cater to specific dietary needs and health goals.",
+      "Introduce value-packed, affordable snack options, potentially in larger formats or multi-packs that offer a lower cost per serving, or in smaller, budget-friendly single portions.",
+      "Offer snacks in flexible portioning, including mini-sizes or re-sealable options for portion control and convenience.",
+      "Tap into nostalgia by re-imagining classic flavors or snack types with healthier ingredients and modern appeal."
+    ],
+    "competitive_insights": [
+      "Established brands are leveraging nostalgia and seasonal themes to boost sales and consumer engagement.",
+      "Competitors are adapting to health trends (e.g., Ozempic) by offering smaller portion sizes.",
+      "There's an existing market for reintroducing or iterating on popular, discontinued flavors.",
+      "Brands are implicitly acknowledging and responding to consumer budget constraints and health-conscious choices."
+    ],
+    "launch_recommendations": [
+      "Formulate snacks with clear health benefits (e.g., high protein, low sugar, natural ingredients) and transparent nutritional labeling.",
+      "Design products with flexible portioning, including mini-sizes or multi-packs that encourage portion control and offer perceived value.",
+      "Position the product as an affordable, accessible, yet healthy option, directly addressing cost-of-living concerns.",
+      "Consider a 'modern classic' approach – a nostalgic flavor or texture made with contemporary, healthier ingredients or production methods.",
+      "Explore community partnership opportunities (e.g., donating to food pantries, school programs) to build brand loyalty and social impact."
+    ],
+    "positioning_strategy": "Position the new snack as a smart choice for the modern consumer: a healthy, portion-controlled indulgence that offers great value, familiar comfort, and functional benefits to navigate today's economic and wellness landscape.",
+    "timing_insights": "Given the ongoing economic uncertainties and cost-of-living pressures, there's an immediate and sustained demand for value-driven and affordable healthy options. Launching with a focus on these attributes is timely. While seasonal pushes (e.g., holiday-themed) can leverage nostalgia, the core product should address year-round needs for health, value, and portion control."
+  }
+}

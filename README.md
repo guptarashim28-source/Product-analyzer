@@ -6,11 +6,21 @@ AI-powered product analysis platform that scrapes Blinkit, analyzes products wit
 ![Streamlit](https://img.shields.io/badge/Streamlit-1.28+-red)
 ![Gemini](https://img.shields.io/badge/Gemini-2.5%20Flash-orange)
 
-## ✨ For Users - Just Visit the Link!
+## ✨ Quick Start
 
-**Live App:** [Your Render URL will be here after deployment]
+### 🎯 Try Demo (No Setup Required)
+View pre-analyzed results instantly: **[Demo App](https://your-streamlit-cloud-url.streamlit.app)**
+- No installation needed
+- No API keys required
+- Full UI experience with sample data
 
-No installation needed - just click and use!
+### 🔥 Deploy Full Version (Live Analysis)
+Get custom analysis for any category/pincode: **[Full App](https://your-render-url.onrender.com)**
+- Live Blinkit scraping
+- Real-time AI analysis
+- Custom categories & pincodes
+
+📖 **[Demo Mode Guide](DEMO_MODE.md)** - Learn about demo vs live mode
 
 ## 🚀 Features
 
@@ -22,12 +32,29 @@ No installation needed - just click and use!
 
 ## 📦 For Developers - Local Setup
 
+### Demo Mode (Minimal Setup)
+
 ```bash
 # Clone repository
 git clone https://github.com/guptarashim28-source/Product-analyzer.git
 cd Product-analyzer/bl
 
-# Install dependencies
+# Install minimal dependencies
+pip install -r requirements-demo.txt
+
+# Run demo mode
+streamlit run streamlit_demo.py
+```
+
+Shows pre-analyzed results for snacks in pincode 380015. Perfect for:
+- Quick demos and presentations
+- Testing UI/UX changes
+- Showcasing to clients
+
+### Live Mode (Full Features)
+
+```bash
+# Install all dependencies
 pip install -r requirements.txt
 
 # Configure environment variables
@@ -36,8 +63,13 @@ GEMINI_API_KEY=your_key_here
 NEWSAPI_KEY=your_key_here
 BLINKIT_HEADLESS=1
 
-# Run the app
-streamlit run streamlit_standalone.py
+# Start backend
+cd amazon_blinkit_scrapping
+python backend.py
+
+# In another terminal, start frontend
+cd ..
+streamlit run streamlit_app.py
 ```
 
 Visit http://localhost:8501
@@ -47,23 +79,60 @@ Visit http://localhost:8501
 1. **Gemini API** - [Get from Google AI Studio](https://makersuite.google.com/app/apikey)
 2. **NewsAPI** - [Get from NewsAPI.org](https://newsapi.org/register)
 
-## 🌐 Deploy Your Own (One-Click)
+## 🌐 Deploy Your Own
 
-### Deploy to Render
+### Option 1: Demo Mode on Streamlit Cloud (Free)
 
-1. **Fork this repository** on GitHub
+Perfect for demos and showcases. No API keys needed!
+
+1. Fork this repository
+2. Go to [share.streamlit.io](https://share.streamlit.io)
+3. Click "New app"
+4. Select:
+   - Repository: `your-username/Product-analyzer`
+   - Branch: `main`
+   - Main file: `bl/streamlit_demo.py`
+5. Deploy!
+
+✅ Shows pre-analyzed results for snacks (pincode 380015)
+✅ Full UI experience
+✅ Zero configuration
+✅ Perfect for presentations
+
+### Option 2: Full Mode on Render.com
+
+For live analysis with any category/pincode:
+
+1. Fork this repository
 2. Go to [Render.com](https://render.com) and sign up
 3. Click **"New +" → "Blueprint"**
 4. Connect your GitHub repo
-5. Add environment variables:
-   - `GEMINI_API_KEY`
-   - `NEWSAPI_KEY`
-6. Click **"Apply"**
-7. Wait 10 minutes - your app is live! 🎉
+5. Select `render.yaml`
+6. Add environment variables:
+   - `GEMINI_API_KEY` - [Get from Google AI Studio](https://aistudio.google.com/app/apikey)
+   - `NEWSAPI_KEY` - [Get from NewsAPI](https://newsapi.org/register)
+   - `BLINKIT_HEADLESS=1`
+   - `MANUAL_LOCATION_MODE=false`
+7. Click **"Apply"**
+8. Wait 10 minutes - your app is live! 🎉
 
-### Alternative: Railway or Heroku
+✅ Live scraping from Blinkit
+✅ Real-time AI analysis
+✅ Custom categories & pincodes
+✅ Full features enabled
 
-Same process - connect repo, add API keys, deploy!
+### Comparison
+
+| Feature | Demo Mode (Streamlit Cloud) | Live Mode (Render) |
+|---------|---------------------------|-------------------|
+| **Cost** | Free | Free tier available |
+| **Setup** | No API keys needed | Requires API keys |
+| **Category** | Snacks only | Any category |
+| **Pincode** | 380015 only | Any pincode |
+| **Data** | Pre-saved | Live scraping |
+| **Best for** | Demos, showcases | Production use |
+
+📖 See **[DEMO_MODE.md](DEMO_MODE.md)** for detailed deployment guide
 
 ## 🛠️ Tech Stack
 
