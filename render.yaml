@@ -4,20 +4,22 @@ services:
     env: python
     region: oregon
     plan: free
+    rootDir: bl
     buildCommand: |
-      cd bl
       pip install -r requirements.txt
-      # Install Chrome and ChromeDriver
+      # Install Chrome dependencies
       apt-get update
       apt-get install -y wget gnupg unzip curl
+      # Install Chrome
       wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
       apt-get install -y ./google-chrome-stable_current_amd64.deb || true
       rm -f google-chrome-stable_current_amd64.deb
-      # Verify Chrome installation
-      google-chrome --version || echo "Chrome installation may have issues"
+      # Verify installation
+      which google-chrome
+      google-chrome --version
     startCommand: |
-      cd bl/amazon_blinkit_scrapping
-      python backend.py --host 0.0.0.0 --port $PORT
+      cd amazon_blinkit_scrapping
+      python backend.py
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.0

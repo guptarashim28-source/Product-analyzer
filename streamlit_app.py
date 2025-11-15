@@ -126,10 +126,12 @@ with st.sidebar:
     st.divider()
     
     # API endpoint selection
-    api_mode = st.radio("🌐 API Mode", ["Local (localhost:8000)", "Custom URL"])
+    api_mode = st.radio("🌐 API Mode", ["Production (Render)", "Local (localhost:8000)", "Custom URL"])
     
-    if api_mode == "Custom URL":
-        api_url = st.text_input("API URL", value="https://your-app.onrender.com")
+    if api_mode == "Production (Render)":
+        api_url = "https://product-analyzer-1.onrender.com"
+    elif api_mode == "Custom URL":
+        api_url = st.text_input("API URL", value="https://product-analyzer-1.onrender.com")
     else:
         api_url = "http://localhost:8000"
     
