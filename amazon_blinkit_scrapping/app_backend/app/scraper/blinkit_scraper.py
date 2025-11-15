@@ -23,22 +23,40 @@ def _init_driver(headless: bool = True) -> webdriver.Chrome:
     chrome_options.add_argument("--disable-blink-features=AutomationControlled")
     chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
     chrome_options.add_experimental_option('useAutomationExtension', False)
+    
     # Allow overriding headless via env var BLINKIT_HEADLESS=0/false
     headless_env = os.getenv("BLINKIT_HEADLESS", "1").lower()
     headless_flag = headless if headless_env not in ("0", "false") else False
     if headless_flag:
         chrome_options.add_argument("--headless=new")
+    
+    # Essential Chrome arguments for containerized environments (Render, Docker, etc.)
     chrome_options.add_argument("--disable-gpu")
     chrome_options.add_argument("--no-sandbox")
+    chrome_options.add_argument("--disable-dev-shm-usage")  # Overcome limited resource problems
+    chrome_options.add_argument("--disable-software-rasterizer")
     chrome_options.add_argument("--window-size=1400,1000")
     chrome_options.add_argument("--lang=en-IN")
     chrome_options.add_argument(
         "--user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36"
     )
-    service = Service()
-    driver = webdriver.Chrome(service=service, options=chrome_options)
-    driver.set_window_size(1400, 1000)
-    return driver
+    
+    # Try to detect Chrome binary path (for Render/production environments)
+    chrome_bin = os.getenv("CHROME_BIN") or os.getenv("GOOGLE_CHROME_BIN")
+    if chrome_bin:
+        chrome_options.binary_location = chrome_bin
+        print(f"🔧 Using Chrome binary: {chrome_bin}")
+    
+    try:
+        service = Service()
+        driver = webdriver.Chrome(service=service, options=chrome_options)
+        driver.set_window_size(1400, 1000)
+        print(f"✅ Chrome driver initialized successfully (headless={headless_flag})")
+        return driver
+    except Exception as e:
+        print(f"❌ Failed to initialize Chrome driver: {e}")
+        print(f"   Chrome binary location: {chrome_options.binary_location if hasattr(chrome_options, 'binary_location') else 'default'}")
+        raise
 
 
 def _verify_pincode(driver: webdriver.Chrome, expected_pincode: str) -> bool:

@@ -61,3 +61,7 @@ services:
         value: "1"
       - key: MANUAL_LOCATION_MODE
         value: "false"
+      - key: CHROME_BIN
+        value: "/usr/bin/google-chrome"
+      - key: CHROMEDRIVER_PATH
+        value: "/usr/bin/chromedriver"
